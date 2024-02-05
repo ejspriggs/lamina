@@ -19,6 +19,12 @@
                 <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Museum Tracker</a></li>
             </ul>
         </nav>
+    </header>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
 </body>
 </html>
    

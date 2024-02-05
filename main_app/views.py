@@ -13,6 +13,12 @@ fossils = [
     {'name': 'Ankylo Skull', 'image': 'https://dodo.ac/np/images/4/45/Ankylo_Skull_NH_Icon.png', 'value': 3500},
 ]
 
+def home(request):
+    return render(request, 'home.html')
+
+def about(request):
+    return render(request, 'about.html')
+
 # Current view to see all the bugs and fishes
 def animals_index(request):
     return render(request, 'animals/index.html', {
