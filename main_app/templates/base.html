@@ -13,18 +13,16 @@
 </head>
 <body>
     <header class="navbar-fixed"></header>
-        <nav>
-            <div class="nav-wrapper">
-            <ul>
-                <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Museum Tracker</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <div class="nav-wrapper">
+        <ul>
+            <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Museum Tracker</a></li>
+        </ul>
+    </nav>
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
-
 </body>
 </html>
    
