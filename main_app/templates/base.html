@@ -15,9 +15,16 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-            <ul>
-                <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Museum Tracker</a></li>
+            <ul class="logo">
+                <li><a href="{% url 'home' %}" class="left-brand-logo">&nbsp;&nbsp;Museum Tracker</a></li>
             </ul>
+            <ul class="right">
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'animals_index' %}">Animals</a></li>
+                <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
+              </ul>
+            </div>  
         </nav>
     </header>
     <main class="container">
