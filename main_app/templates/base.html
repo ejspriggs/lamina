@@ -26,10 +26,10 @@
                         <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
                         <li><a href="{% url 'fish_index' %}">Fish</a></li>
                         <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                        <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-button" type="submit">Log Out</button></form></li>
+                        <li class="custom-logout"><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="btn" type="submit">Log Out</button>&nbsp;&nbsp;</form></li>
                     {% else %}
                         <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>  
