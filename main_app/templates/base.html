@@ -14,7 +14,7 @@
 <body>
     <header class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper cyan accent-3">
             <ul>
                 <li><a href="{% url 'home' %}">&nbsp;&nbsp;Museum Tracker</a></li>
                
@@ -25,7 +25,7 @@
                     <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
                     <li><a href="{% url 'fish_index' %}">Fish</a></li>
                     <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                    <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button type="submit">Log Out</button></form></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
                     <li><a href="{% url 'signup' %}">Sign Up</a></li>
                     <li><a href="{% url 'login' %}">Log In</a></li>
