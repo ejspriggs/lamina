@@ -27,6 +27,7 @@
                     <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
                     <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-button" type="submit">Log Out</button></form></li>
                 {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
                     <li><a href="{% url 'login' %}">Log In</a></li>
                 {% endif %}
               </ul>
