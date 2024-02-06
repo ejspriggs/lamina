@@ -9,28 +9,29 @@
     <title>Museum Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
+    {% block custom_css %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js" defer></script>
 </head>
 <body>
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper cyan accent-3">
-            <ul>
-                <li><a href="{% url 'home' %}">&nbsp;&nbsp;Museum Tracker</a></li>
-               
-            </ul>
-            <ul class="right">
-                <li><a href="{% url 'about' %}">About</a></li>               
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
-                    <li><a href="{% url 'fish_index' %}">Fish</a></li>
-                    <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
-                {% else %}
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
-                {% endif %}
-              </ul>
+                <ul>
+                    <li><a href="{% url 'home' %}">&nbsp;&nbsp;Museum Tracker</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="{% url 'about' %}">About</a></li>               
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
+                        <li><a href="{% url 'fish_index' %}">Fish</a></li>
+                        <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
+                        <li><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-button" type="submit">Log Out</button></form></li>
+                    {% else %}
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
             </div>  
         </nav>
     </header>
