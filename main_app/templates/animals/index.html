@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Aminalz!</h1>
+{% if animal_type == 'fish' %}
+<h1>Fishies!</h1>
+{% elif animal_type == 'bugs' %}
+<h1>Bugz!</h1>
+{% endif %}
 {% endblock %}

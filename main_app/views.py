@@ -27,13 +27,18 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-# Current view to see all the bugs and fishes
-def animals_index(request):
+def bugs_index(request):
     return render(request, 'animals/index.html', {
-        'animals': animals
+        'animals': animals,
+        'animal_type': 'bugs'
     })
 
-# Current view to see all the fossils
+def fish_index(request):
+    return render(request, 'animals/index.html', {
+        'animals': animals,
+        'animal_type': 'fish'
+    })
+
 def fossils_index(request):
     return render(request, 'fossils/index.html', {
         'fossils': fossils
