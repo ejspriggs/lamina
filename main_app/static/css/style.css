@@ -13,27 +13,64 @@ body {
         color: black;
     }
 }
-/* button {
-    color: rgb(215, 227, 244);
-}
-form:hover {
-    color: rgb(115, 177, 235);
-}
-ul.collectibles {
-    background-color: rgb(242, 205, 162);
-    a {
-        text-align: center;
-        justify-content: center;
-    }
-}
+.bug-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 26px;
+}   
+.fish-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 26px;
+}   
+.fossil-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 26px;
+}   
+    
 .bug-index{
+    background-color: rgb(242, 205, 162);
     border: 3px solid black;
-} */
+    padding: 0;
+    margin: 50px;
+    height: 75px;
+} 
+ul.fish-index{
+    background-color: rgb(242, 205, 162);
+    border: 3px solid black;
+    padding: 0;
+    margin: 50px;
+    height: 75px;
+} 
+ul.fossil-index{
+    background-color: rgb(242, 205, 162);
+    border: 3px solid black;
+    padding: 0;
+    margin: 50px;
+    height: 75px;
+} 
 div.about-page {
     color: rgb(242, 205, 162);
+    background-color: white;
+    margin: auto;
+    border: 3px solid black;
 }
 
 h1.about-about-page {
     text-align: center;
+    padding: 10px;
    
+}
+h4.about-text {
+    margin: 10px;
+    padding: 10px;
+}
+h3.text-title-2 {
+    margin-left: 10px;
+    padding: 10px;
+}
+h4.get-started-text {
+    margin-left: 10px;
+    padding: 10px;
 }

@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 <ul class="collectibles">
-    <li class="bug-index">
+    <ul class="bug-index">
+        <div class="bug-link">
         <a href = "{% url 'bugs_index' %}">
             Bugs left: {{ bugs_left }}
         </a>
-    </li>
-    <li>
+        </div>
+    </ul>
+    <ul class ="fish-index">
+        <div class="fish-link">
         <a href = "{% url 'fish_index' %}">
             Fish left: {{ fish_left }}
         </a>
-    </li>
-    <li>
+        </div>
+    </ul>
+    <ul class ="fossil-index">
+        <div class="fossil-link">
         <a href = "{% url 'fossils_index' %}">
             Fossils left: {{ fossils_left }}
         </a>
-    </li>
+        </div>
+    </ul>
 </ul>
 {% endblock %}
