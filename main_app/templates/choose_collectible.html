@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul>
-    <li>
+<ul class="collectibles">
+    <li class="bug-index">
         <a href = "{% url 'bugs_index' %}">
             Bugs left: {{ bugs_left }}
         </a>

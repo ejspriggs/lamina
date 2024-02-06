@@ -13,3 +13,19 @@ body {
         color: black;
     }
 }
+button {
+    color: rgb(215, 227, 244);
+}
+form:hover {
+    color: rgb(115, 177, 235);
+}
+ul.collectibles {
+    background-color: rgb(242, 205, 162);
+    a {
+        text-align: center;
+        justify-content: center;
+    }
+}
+.bug-index{
+    border: 3px solid black;
+}
