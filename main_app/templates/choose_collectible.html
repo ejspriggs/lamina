@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    <li>
+        <a href = "{% url 'bugs_index' %}">
+            Bugs left: {{ bugs }}
+        </a>
+    </li>
+    <li>
+        <a href = "{% url 'fish_index' %}">
+            Fish left: {{ fish }}
+        </a>
+    </li>
+    <li>
+        <a href = "{% url 'fossils_index' %}">
+            Fossils left: {{ fossils }}
+        </a>
+    </li>
+</ul>
+{% endblock %}
