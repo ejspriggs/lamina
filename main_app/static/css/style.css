@@ -13,7 +13,7 @@ body {
         color: black;
     }
 }
-button {
+/* button {
     color: rgb(215, 227, 244);
 }
 form:hover {
@@ -28,4 +28,12 @@ ul.collectibles {
 }
 .bug-index{
     border: 3px solid black;
+} */
+div.about-page {
+    color: rgb(242, 205, 162);
+}
+
+h1.about-about-page {
+    text-align: center;
+   
 }
