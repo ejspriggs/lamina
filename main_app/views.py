@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .forms import ExtendedUserCreationForm
+from django.contrib.auth.models import User
+from .models import Profile
 
 # Mock data for initial design
 animals = [
@@ -58,5 +61,25 @@ def signup(request):
         else:
             error_message = 'Invalid sign-up, please try again.'
     form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
+
+def signup2(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = ExtendedUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            display_name = form.cleaned_data.get('display_name')
+            is_northern_hemi = form.cleaned_data.get('is_northern_hemi')
+            user = User.objects.get(username = username)
+            profile = Profile.objects.create(user = user, display_name = display_name, is_northern_hemi = is_northern_hemi)
+            profile.save()
+            login(request, user)
+            return redirect('choose_collectible')
+        else:
+            error_message = 'Invalid sign-up, please try again.'
+    form = ExtendedUserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
