@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import ExtendedUserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 # Mock data for initial design
 animals = [
@@ -30,23 +31,27 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def bugs_index(request):
     return render(request, 'animals/index.html', {
         'animals': animals,
         'animal_type': 'bugs'
     })
 
+@login_required
 def fish_index(request):
     return render(request, 'animals/index.html', {
         'animals': animals,
         'animal_type': 'fish'
     })
 
+@login_required
 def fossils_index(request):
     return render(request, 'fossils/index.html', {
         'fossils': fossils
     })
 
+@login_required
 def choose_collectible(request):
     return render(request, 'choose_collectible.html', collectibles)
 
