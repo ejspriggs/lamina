@@ -17,16 +17,20 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper cyan accent-3">
-                <ul>
-                    <li><a href="{% url 'home' %}">&nbsp;&nbsp;Museum Tracker</a></li>
-                </ul>
-                <ul class="right">
-                    <li><a href="{% url 'about' %}">About</a></li>               
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+                <a href="{% url 'home' %}" class="brand-logo">&nbsp;Museum Tracker</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
                         <li><a href="{% url 'fish_index' %}">Fish</a></li>
                         <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                        <li class="custom-logout"><form method="POST" action="{% url 'logout' %}">{% csrf_token %}<button class="btn" type="submit">Log Out</button>&nbsp;&nbsp;</form></li>
+                        <li class="custom-logout">
+                            <form method="POST" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button class="btn" type="submit">Log Out</button>
+                            </form>
+                        </li>
                     {% else %}
                         <li><a href="{% url 'signup' %}">Sign Up</a></li>
                         <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
@@ -34,11 +38,35 @@
                 </ul>
             </div>  
         </nav>
+        <ul class="sidenav" id="mobile-nav">
+            <li><a href="{% url 'home' %}">Museum Tracker</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
+                <li><a href="{% url 'fish_index' %}">Fish</a></li>
+                <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
+                <li>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn" type="submit">Log Out</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+        </ul>
     </header>
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>   
 </body>
 </html>
    
