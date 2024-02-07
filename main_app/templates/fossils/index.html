@@ -5,10 +5,20 @@
     <div class="row">
         {% for fossil in fossils %}
         <div class="col l12 m12 s12 bonez">
+            <div class="fossil-image">
             <img src="{{fossil.image_url}}">
+            </div>
+            <div class="fossil-name">
             <span>Name: {{ fossil.name.title }}</span>
-            <a class="waves-effect waves-light btn">Got it!</a>
-            <a class="waves-effect waves-light btn">Details</a>
+            </div>
+            <div class="detail-buttons">
+                <div class="fossils-got-it">
+                <a class="waves-effect waves-light btn">Got it!</a>
+                </div>
+                <div class="fossils-details-btn">
+                <a class="waves-effect waves-light btn">Details</a>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
