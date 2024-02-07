@@ -14,49 +14,48 @@
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js" defer></script>
 </head>
 <body>
-    <header class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper cyan accent-3">
-                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
-                <a href="{% url 'home' %}" class="brand-logo">&nbsp;Museum Tracker</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
-                        <li><a href="{% url 'fish_index' %}">Fish</a></li>
-                        <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                        <li class="custom-logout">
-                            <form method="POST" action="{% url 'logout' %}">
-                                {% csrf_token %}
-                                <button class="btn" type="submit">Log Out</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                        <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
-                    {% endif %}
-                </ul>
-            </div>  
-        </nav>
-        <ul class="sidenav" id="mobile-nav">
-            <li><a href="{% url 'home' %}">Museum Tracker</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
-                <li><a href="{% url 'fish_index' %}">Fish</a></li>
-                <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
-                <li>
-                    <form method="POST" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <button class="btn" type="submit">Log Out</button>
-                    </form>
-                </li>
-            {% else %}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
-            {% endif %}
-        </ul>
-    </header>
+    <nav>
+        <div class="nav-wrapper cyan accent-3">
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <a href="{% url 'home' %}" class="brand-logo">&nbsp;Museum Tracker</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
+                    <li><a href="{% url 'fish_index' %}">Fish</a></li>
+                    <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
+                    <li class="custom-logout">
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="btn" type="submit">Log Out</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>  
+    </nav>
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="{% url 'home' %}">Museum Tracker</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
+            <li><a href="{% url 'fish_index' %}">Fish</a></li>
+            <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
+            <li>
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="btn" type="submit">Log Out</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="btn" href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
+    </ul>
+
     <main class="container">
         {% block content %}
         {% endblock %}
