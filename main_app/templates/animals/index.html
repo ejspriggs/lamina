@@ -8,17 +8,17 @@
         {% for single_fish in fish %}
         <div class="col l12 m12 s12 fishies">
             <div class="fish-image">
-            <img src="{{single_fish.image_url}}">
+                <img src="{{single_fish.image_url}}">
             </div>
             <div class="fish-name">
-            <span>Name: {{single_fish.name.title}}</span>
+                <span>Name: {{single_fish.name.title}}</span>
             </div>
             <div class="detail-buttons">
                 <div class="fish-got-it">
-                <a class="waves-effect waves-light btn">Got it!</a>
+                    <a class="waves-effect waves-light btn">Got it!</a>
                 </div>
                 <div class="fish-details-button">
-                <a class="waves-effect waves-light btn">Details</a>
+                    <a class="waves-effect waves-light btn" href="{{single_fish.name}}">Details</a>
                 </div>
             </div>
         </div>
@@ -33,17 +33,17 @@
         {% for bug in bugs%}
         <div class="col l12 m12 s12 bugz">
             <div class="bug-image">
-            <img src="{{bug.image_url}}">
+                <img src="{{bug.image_url}}">
             </div>
             <div class="bug-name">
-            <span>Name: {{bug.name}}</span>
+                <span>Name: {{bug.name}}</span>
             </div>
             <div class="detail-buttons">
                 <div class="bug-got-it">
-                <a class="waves-effect waves-light btn">Got it!</a>
+                    <a class="waves-effect waves-light btn">Got it!</a>
                 </div>
                 <div class="bug-details-button">
-                <a class="waves-effect waves-light btn">Details</a>
+                    <a class="waves-effect waves-light btn" href="{{bug.name}}">Details</a>
                 </div>
             </div>
         </div>   

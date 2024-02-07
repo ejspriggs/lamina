@@ -1,6 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Animal Details</h1>
+{% if animal_type == 'fish' %}
+
+    <h1>{{ fish.name.title }}</h1>
+    <p>Item Number: {{ fish.number }}</p>
+    <p>Location Found: {{ fish.location }}</p>
+    <p>Shadow Size: {{ fish.shadow_size }}</p>
+    <p>Rarity: {{ fish.rarity }}</p>
+    <p>Sell Value (Nook's Cranny): {{ fish.sell_nook }} Bells</p>
+    <p>Sell Value (CJ): {{ fish.sell_cj }} Bells</p>
+    <p>Catchphrases: {{ fish.catchphrases.0 }}</p>
+    <h4>Northern Hemisphere</h4>
+    <p>Months you can find {{fish.name.title}}: {{ fish.north.availability_array.0.months }}</p>
+    <p>Times you can find {{fish.name.title}}: {{ fish.north.availability_array.0.time }}</p>
+    <h4>Southern Hemisphere</h4>
+    <p>Months you can find {{fish.name.title}}: {{ fish.south.availability_array.0.months }}</p>
+    <p>Times you can find {{fish.name.title}}: {{ fish.south.availability_array.0.time }}</p>
+
+{% elif animal_type == 'bugs' %}
+
+    <h1>{{ bug.name.capitalize }}</h1>
+    <p>Item Number: {{ bug.number }}</p>
+    <p>Location Found: {{ bug.location }}</p>
+    <p>Weather Found: </p>
+    <p>Rarity: {{ bug.rarity }}</p>
+    <p>Sell Value (Nook's Cranny): {{ bug.sell_nook }} Bells</p>
+    <p>Sell Value (Flick): {{ bug.sell_flick }} Bells</p>
+    <p>Catchphrases: {{ bug.catchphrases.0 }}</p>
+    <h4>Northern Hemisphere</h4>
+    <p>Months you can find {{bug.name.title}}: {{ bug.north.availability_array.0.months }}</p>
+    <p>Times you can find {{bug.name.title}}: {{ bug.north.availability_array.0.time }}</p>
+    <h4>Southern Hemisphere</h4>
+    <p>Months you can find {{bug.name.title}}: {{ bug.south.availability_array.0.months }}</p>
+    <p>Times you can find {{bug.name.title}}: {{ bug.south.availability_array.0.time }}</p>
+
+{% endif %}
 
 {% endblock %}
