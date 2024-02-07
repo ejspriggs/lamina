@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Bonez!</h1>
+<div class="container">
+    <div class="row">
+        {% for fossil in fossils %}
+        <div class="col l12 m12 s12 bonez">
+            <img src="{{fossil.image_url}}">
+            <span>Name: {{ fossil.name.title }}</span>
+            <a class="waves-effect waves-light btn">Got it!</a>
+            <a class="waves-effect waves-light btn">Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

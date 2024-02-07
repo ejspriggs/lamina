@@ -5,6 +5,7 @@ from .forms import ExtendedUserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from django.contrib.auth.decorators import login_required
+import requests
 
 # Mock data for initial design
 animals = [
@@ -25,6 +26,8 @@ collectibles = {
     'fossils_left': 16
 }
 
+api_key = '843450ff-ae8c-4884-83b6-6153eb441bd0'
+
 def home(request):
     return render(request, 'home.html')
 
@@ -33,20 +36,26 @@ def about(request):
 
 @login_required
 def bugs_index(request):
+    api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
+    bugs = requests.get(api_url).json()
     return render(request, 'animals/index.html', {
-        'animals': animals,
+        'bugs': bugs,
         'animal_type': 'bugs'
     })
 
 @login_required
 def fish_index(request):
+    api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
+    fish = requests.get(api_url).json()
     return render(request, 'animals/index.html', {
-        'animals': animals,
+        'fish': fish,
         'animal_type': 'fish'
     })
 
 @login_required
 def fossils_index(request):
+    api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
+    fossils = requests.get(api_url).json()
     return render(request, 'fossils/index.html', {
         'fossils': fossils
     })
