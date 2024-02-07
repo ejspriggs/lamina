@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Museum Tracker</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block custom_css %}
@@ -16,7 +17,7 @@
 <body>
     <nav>
         <div class="nav-wrapper cyan accent-3">
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <a href="{% url 'home' %}" class="brand-logo">&nbsp;Museum Tracker</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'about' %}">About</a></li>
