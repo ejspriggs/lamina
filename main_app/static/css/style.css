@@ -5,6 +5,9 @@ body {
 .login-home {
     text-align: center;
 }
+.signup-home {
+    text-align: center;
+}
 .title-home {
     text-align: center;
 }
@@ -142,6 +145,32 @@ h4.get-started-text {
 }
 .sidebar-logout {
     margin-left: 10px;
+}
+.signup-page {
+    background-color: rgb(242, 205, 162);
+    padding: 20px;
+    margin-top: 30px;
+    border: 3px solid black;
+}
+.login-page{
+    background-color: rgb(242, 205, 162);
+    padding: 20px;
+    margin-top: 30px;
+    border: 3px solid black;
+}
+.tom-nook {
+    text-align: center;
+}
+.home-buttons {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.entire-home-page {
+    background-color: rgb(242, 205, 162);
+    padding: 20px;
+    margin-top: 30px;
+    border: 3px solid black;
 }
 @media screen and (max-width: 600px) {
     .nav-wrapper .brand-logo {
