@@ -120,3 +120,12 @@ h4.get-started-text {
     margin-bottom: 5px;
    
 }
+.fish-details-page {
+    text-align: center;
+    background-color: white;
+    color: rgb(146, 163, 185);
+    padding: 20px;
+    font-size: 22px;
+    border-radius: 20px;
+    border: 3px solid black;
+}

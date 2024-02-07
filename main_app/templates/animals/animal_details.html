@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="fish-details-page">
 {% if animal_type == 'fish' %}
 
     <h1>{{ fish.name.title }}</h1>
@@ -17,7 +17,8 @@
     <h4>Southern Hemisphere</h4>
     <p>Months you can find {{fish.name.title}}: {{ fish.south.availability_array.0.months }}</p>
     <p>Times you can find {{fish.name.title}}: {{ fish.south.availability_array.0.time }}</p>
-
+</div>
+<div class="bug-details-page">
 {% elif animal_type == 'bugs' %}
 
     <h1>{{ bug.name.capitalize }}</h1>
@@ -36,5 +37,5 @@
     <p>Times you can find {{bug.name.title}}: {{ bug.south.availability_array.0.time }}</p>
 
 {% endif %}
-
+</div>
 {% endblock %}
