@@ -142,8 +142,14 @@ h4.get-started-text {
 .fossil-title {
     text-align: center;
 }
+.logout-btn {
+    margin-right: 10px;
+}
+.sidebar-logout {
+    margin-left: 10px;
+}
 @media screen and (max-width: 600px) {
     .nav-wrapper .brand-logo {
         white-space: nowrap;
     }
-}    
+} 

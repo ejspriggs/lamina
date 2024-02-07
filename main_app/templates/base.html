@@ -28,7 +28,9 @@
                     <li class="custom-logout">
                         <form method="POST" action="{% url 'logout' %}">
                             {% csrf_token %}
+                            <div class="logout-btn">
                             <button class="btn" type="submit">Log Out</button>
+                            </div>
                         </form>
                     </li>
                 {% else %}
@@ -48,7 +50,9 @@
             <li>
                 <form method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
+                    <div class="sidebar-logout">
                     <button class="btn" type="submit">Log Out</button>
+                    </div>
                 </form>
             </li>
         {% else %}
