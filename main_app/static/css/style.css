@@ -1,6 +1,5 @@
 body {
-    background-image: url("/static/nook-bg-aligned.jpg");
-   
+    background-image: url("/static/nook-bg-aligned.jpg"); 
 }
 .login-home {
     text-align: center;
@@ -25,8 +24,7 @@ body {
     text-align: center;
     margin-top: 20px;
     font-size: 26px;
-}   
-    
+}       
 .bug-index{
     background-color: rgb(242, 205, 162);
     border: 3px solid black;
@@ -55,7 +53,6 @@ div.about-page {
     border: 3px solid black;
     border-radius: 20px;
 }
-
 h1.about-about-page {
     text-align: center;
     padding: 10px;
@@ -73,7 +70,6 @@ h4.get-started-text {
     margin-left: 10px;
     padding: 10px;
 }
-
 .fishies, .bugz, .bonez {
     background-color: rgb(255,255,255,0.6);
     border: 5px solid black;
