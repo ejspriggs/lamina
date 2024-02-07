@@ -53,6 +53,7 @@ div.about-page {
     background-color: white;
     margin: 30px;
     border: 3px solid black;
+    border-radius: 20px;
 }
 
 h1.about-about-page {
@@ -74,7 +75,7 @@ h4.get-started-text {
 }
 
 .fishies, .bugz, .bonez {
-    background-color: rgb(255,255,255,0.5);
+    background-color: rgb(255,255,255,0.6);
     border: 5px solid black;
     border-radius: 10px;
     margin: 2px 2px;
@@ -109,27 +110,36 @@ h4.get-started-text {
     justify-content: center;
     align-items: center; 
     margin-bottom: 5px;
-   
 }
-.bug-details-page {
+.animal-details-page {
     text-align: center;
-    background-color: white;
+    background-color: rgb(255,255,255,0.6);
     color: rgb(146, 163, 185);
     padding: 20px;
     font-size: 22px;
     border-radius: 20px;
     border: 3px solid black;
     margin: 30px;
+}
+.animal-details-page img {
+    width: 50%;
+    height: auto;
+    object-fit: scale-down;
 }
 .fossil-detail-page {
     text-align: center;
-    background-color: white;
+    background-color: rgb(255,255,255,0.6);
     color: rgb(146, 163, 185);
     padding: 20px;
     font-size: 22px;
     border-radius: 20px;
     border: 3px solid black;
     margin: 30px;
+}
+.fossil-detail-page img {
+    width: 25%;
+    height: auto;
+    object-fit: contain;
 }
 .fish-title {
     text-align: center;

@@ -2,7 +2,12 @@
 {% block content %}
 <div class="fossil-detail-page">
     <h1>{{ fossil.name.title}}</h1>
-    <p>Fossil Group: {{ fossil.fossil_group }}</p>
+    <img src="{{ fossil.image_url }}">
+    {% if fossil.fossil_group == "" %}
+        <p>Fossil Group: None</p>
+    {% else %}
+        <p>Fossil Group: {{ fossil.fossil_group }}</p>
+    {% endif %}
     <p>Sell Amount: {{ fossil.sell}} Bells</p>
 </div>
 {% endblock %}

@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="bug-details-page">
+<div class="animal-details-page">
 {% if animal_type == 'fish' %}
 
     <h1>{{ fish.name.title }}</h1>
+    <img src="{{ fish.render_url }}">
     <p>Item Number: {{ fish.number }}</p>
     <p>Location Found: {{ fish.location }}</p>
     <p>Shadow Size: {{ fish.shadow_size }}</p>
@@ -21,6 +22,7 @@
 {% elif animal_type == 'bugs' %}
 
     <h1>{{ bug.name.capitalize }}</h1>
+    <img src="{{ bug.render_url}}">
     <p>Item Number: {{ bug.number }}</p>
     <p>Location Found: {{ bug.location }}</p>
     <p>Weather Found: </p>
