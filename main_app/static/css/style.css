@@ -133,6 +133,15 @@ h4.get-started-text {
     border: 3px solid black;
     margin: 30px;
 }
+.fish-title {
+    text-align: center;
+}
+.bug-title {
+    text-align: center;
+}
+.fossil-title {
+    text-align: center;
+}
 @media screen and (max-width: 600px) {
     .nav-wrapper .brand-logo {
         white-space: nowrap;

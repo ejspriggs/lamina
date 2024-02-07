@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Aminalz!</h1>
 {% if animal_type == 'fish' %}
+<div class="fish-title">
 <h1>Fishies!</h1>
+</div>
 <div class="container">
     <div class="row">
         {% for single_fish in fish %}
@@ -27,7 +28,9 @@
 </div>
 
 {% elif animal_type == 'bugs' %}
+<div class="bug-title">
 <h1>Bugz!</h1>
+</div>
 <div class="container">
     <div class="row">
         {% for bug in bugs%}
