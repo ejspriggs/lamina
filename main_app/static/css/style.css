@@ -53,7 +53,7 @@ ul.fossil-index{
 div.about-page {
     color: rgb(242, 205, 162);
     background-color: white;
-    margin: auto;
+    margin: 30px;
     border: 3px solid black;
 }
 
@@ -81,10 +81,6 @@ h4.get-started-text {
     border-radius: 10px;
     margin: 2px 2px;
 }
-/* .detail-buttons {
-    text-align: right;
-    margin-bottom: 20px;
-} */
 .bug-name {
     font-size: 28px;
     text-align: center;
@@ -109,9 +105,6 @@ h4.get-started-text {
 .fossil-image {
     text-align: center;
 }
-/* .bug-got-it {
-    margin-bottom: 50px;
-} */
 .detail-buttons {
     display: flex;
     gap: 10px; 
@@ -120,7 +113,7 @@ h4.get-started-text {
     margin-bottom: 5px;
    
 }
-.fish-details-page {
+.bug-details-page {
     text-align: center;
     background-color: white;
     color: rgb(146, 163, 185);
@@ -128,4 +121,15 @@ h4.get-started-text {
     font-size: 22px;
     border-radius: 20px;
     border: 3px solid black;
+    margin: 30px;
+}
+.fossil-detail-page {
+    text-align: center;
+    background-color: white;
+    color: rgb(146, 163, 185);
+    padding: 20px;
+    font-size: 22px;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin: 30px;
 }
