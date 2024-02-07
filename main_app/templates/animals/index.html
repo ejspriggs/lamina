@@ -11,7 +11,7 @@
                 <img src="{{single_fish.image_url}}">
             </div>
             <div class="fish-name">
-                <span>Name: {{single_fish.name.title}}</span>
+                <span>{{single_fish.name.title | title}}</span>
             </div>
             <div class="detail-buttons">
                 <div class="fish-got-it">
@@ -36,7 +36,7 @@
                 <img src="{{bug.image_url}}">
             </div>
             <div class="bug-name">
-                <span>Name: {{bug.name}}</span>
+                <span>{{bug.name | title}}</span>
             </div>
             <div class="detail-buttons">
                 <div class="bug-got-it">
