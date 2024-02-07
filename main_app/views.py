@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ExtendedUserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Fossils, Animal
 from django.contrib.auth.decorators import login_required
 import requests
 
@@ -37,27 +37,62 @@ def about(request):
 @login_required
 def bugs_index(request):
     api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
-    bugs = requests.get(api_url).json()
+    bugs_donated = [f.name for f in request.user.animal_set.filter(type__exact = "bug")]
+    bugs = [b for b in requests.get(api_url).json() if b["name"] not in bugs_donated]
     return render(request, 'animals/index.html', {
         'bugs': bugs,
         'animal_type': 'bugs'
     })
 
 @login_required
+def bugs_config(request):
+    api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
+    bugs_donated = [f.name for f in request.user.animal_set.filter(type__exact = "bug")]
+    bugs = requests.get(api_url).json()
+    return render(request, 'animals/config.html', {
+        'bugs': bugs,
+        'bugs_donated': bugs_donated,
+        'animal_type': 'bugs'
+    })
+
+@login_required
 def fish_index(request):
     api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
-    fish = requests.get(api_url).json()
+    fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
+    fish = [f for f in requests.get(api_url).json() if f["name"] not in fish_donated]
     return render(request, 'animals/index.html', {
         'fish': fish,
         'animal_type': 'fish'
     })
 
 @login_required
+def fish_config(request):
+    api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
+    fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
+    fish = requests.get(api_url).json()
+    return render(request, 'animals/index.html', {
+        'fish': fish,
+        'fish_donated': fish_donated,
+        'animal_type': 'fish'
+    })
+
+@login_required
 def fossils_index(request):
     api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
-    fossils = requests.get(api_url).json()
+    fossils_donated = [f.name for f in request.user.fossils_set.all()]
+    fossils = [f for f in requests.get(api_url).json() if f["name"] not in fossils_donated]
     return render(request, 'fossils/index.html', {
         'fossils': fossils
+    })
+
+@login_required
+def fossils_config(request):
+    api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
+    fossils_donated = [f.name for f in request.user.fossils_set.all()]
+    fossils = requests.get(api_url).json()
+    return render(request, 'fossils/index.html', {
+        'fossils': fossils,
+        'fossils_donated': fossils
     })
 
 @login_required
