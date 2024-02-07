@@ -61,6 +61,31 @@ def fossils_index(request):
     })
 
 @login_required
+def bug_details(request, bugs_name):
+    api_url = f'https://api.nookipedia.com/nh/bugs/{bugs_name}?api_key={api_key}'
+    bug = requests.get(api_url).json()
+    return render(request, 'animals/animal_details.html', {
+        'bug': bug,
+        'animal_type': 'bugs'
+    })
+
+@login_required
+def fish_details(request, fish_name):
+    api_url = f'https://api.nookipedia.com/nh/fish/{fish_name}?api_key={api_key}'
+    fish = requests.get(api_url).json()
+    return render(request, 'animals/animal_details.html', {
+        'fish': fish,
+        'animal_type': 'fish'
+    })
+@login_required
+def fossil_details(request, fossil_name):
+    api_url = f'https://api.nookipedia.com/nh/fossils/individuals/{fossil_name}?api_key={api_key}'
+    fossil = requests.get(api_url).json()
+    return render(request, 'fossils/fossil_details.html', {
+        'fossil': fossil
+    })
+
+@login_required
 def choose_collectible(request):
     return render(request, 'choose_collectible.html', collectibles)
 
