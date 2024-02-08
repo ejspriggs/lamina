@@ -2,6 +2,7 @@
 {% block content %}
 <div class="fossil-title">
     <h1>Bonez!</h1>
+    <a class="waves-effect waves-light btn" href="{% url 'fossils_config' %}">Configure List</a>
 </div>
 <div class="container">
     <div class="row">
@@ -21,7 +22,7 @@
                         </form>
                     </div>
                     <div class="fossils-details-btn">
-                        <a class="waves-effect waves-light btn" href="{{fossil.name}}">Details</a>
+                        <a class="waves-effect waves-light btn" href="{% url 'fossil_details' fossil.name %}">Details</a>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,6 @@ body {
     margin-top: 20px;
     font-size: 26px;
 }   
-    
 .bug-index{
     background-color: rgb(242, 205, 162);
     border: 3px solid black;
@@ -54,7 +53,6 @@ div.about-page {
     border: 3px solid black;
     border-radius: 20px;
 }
-
 h1.about-about-page {
     text-align: center;
     padding: 10px;
@@ -72,7 +70,6 @@ h4.get-started-text {
     margin-left: 10px;
     padding: 10px;
 }
-
 .fishies, .bugz, .bonez {
     background-color: rgb(255,255,255,0.6);
     border: 5px solid black;
@@ -124,6 +121,18 @@ h4.get-started-text {
     width: 50%;
     height: auto;
     object-fit: scale-down;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+}
+.configuration-container {
+    background-color: rgb(255,255,255,0.6);
+    border: 3px solid black;
+}
+.checkbox-container h4 {
+    margin: 0;
 }
 .fossil-detail-page {
     text-align: center;
