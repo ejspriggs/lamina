@@ -28,14 +28,18 @@ def bugs_index(request):
 
 @login_required
 def bugs_config(request):
-    api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
-    bugs_donated = [f.name for f in request.user.animal_set.filter(type__exact = "bug")]
-    bugs = requests.get(api_url).json()
-    return render(request, 'animals/config.html', {
-        'bugs': bugs,
-        'bugs_donated': bugs_donated,
-        'animal_type': 'bugs'
-    })
+    if request.method == 'POST':
+        print(request.body)
+        return redirect('bugs_config')
+    else:
+        api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
+        bugs_donated = [f.name for f in request.user.animal_set.filter(type__exact = "bug")]
+        bugs = requests.get(api_url).json()
+        return render(request, 'animals/config.html', {
+            'bugs': bugs,
+            'bugs_donated': bugs_donated,
+            'animal_type': 'bugs'
+        })
 
 @login_required
 def bug_details(request, bugs_name):

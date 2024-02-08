@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -15,8 +14,6 @@ class Fossils(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def get_absolute_url(self):
-        return reverse('fossils_index')
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
