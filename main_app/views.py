@@ -67,7 +67,7 @@ def fish_config(request):
     api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
     fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
     fish = requests.get(api_url).json()
-    return render(request, 'animals/index.html', {
+    return render(request, 'animals/config.html', {
         'fish': fish,
         'fish_donated': fish_donated,
         'animal_type': 'fish'
@@ -103,7 +103,7 @@ def fossils_config(request):
     api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
     fossils_donated = [f.name for f in request.user.fossils_set.all()]
     fossils = requests.get(api_url).json()
-    return render(request, 'fossils/index.html', {
+    return render(request, 'fossils/config.html', {
         'fossils': fossils,
         'fossils_donated': fossils_donated
     })

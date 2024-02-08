@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Configuration Page for Fossils</h1>
+<form action="">
+    <div class="configuration-container">
+        <div class="row">
+        {% for fossil in fossils %}
+            <div class="col l12 m12 s12">
+                <label class="checkbox-container">
+                    {% if fossil.name in fossils_donated %}
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                        <h4>{{ fossil.name|title }}</h4>
+                        <img src="{{ fossil.image_url }}">
+                    {% else %}
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <h4>{{ fossil.name|title }}</h4>
+                    <img src="{{ fossil.image_url }}">
+                    {% endif %}
+                </label>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</form>
+<form>
+    <button>Submit Changes</button>
+</form>
+{% endblock %}

@@ -2,7 +2,8 @@
 {% block content %}
 {% if animal_type == 'fish' %}
 <div class="fish-title">
-<h1>Fishies!</h1>
+    <h1>Fishies!</h1>
+    <a class="waves-effect waves-light btn" href="{% url 'fish_config' %}">Configure List</a>
 </div>
 <div class="container">
     <div class="row">
@@ -22,7 +23,7 @@
                     </form>
                 </div>
                 <div class="fish-details-button">
-                    <a class="waves-effect waves-light btn" href="{{single_fish.name}}">Details</a>
+                    <a class="waves-effect waves-light btn" href="{% url 'fish_details' single_fish.name %}">Details</a>
                 </div>
             </div>
         </div>
@@ -32,7 +33,8 @@
 
 {% elif animal_type == 'bugs' %}
 <div class="bug-title">
-<h1>Bugz!</h1>
+    <h1>Bugz!</h1>
+    <a class="waves-effect waves-light btn" href="{% url 'bugs_config' %}">Configure List</a>
 </div>
 <div class="container">
     <div class="row">
@@ -52,7 +54,7 @@
                     </form>
                 </div>
                 <div class="bug-details-button">
-                    <a class="waves-effect waves-light btn" href="{{bug.name}}">Details</a>
+                    <a class="waves-effect waves-light btn" href="{%url 'bug_details' bug.name %}">Details</a>
                 </div>
             </div>
         </div>   
