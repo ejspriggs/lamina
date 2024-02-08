@@ -2,7 +2,9 @@
 {% block content %}
 
 {% if animal_type == 'bugs' %}
+<div class="config-title">
 <h1>Configuration Page for Bugs</h1>
+</div>
 <form action="" method="POST">
     {% csrf_token %}
     <div class="configuration-container">
@@ -26,7 +28,9 @@
     </div>
 </form>
 {% elif animal_type == 'fish' %}
+<div class="config-title">
 <h1>Configuration Page for Fish</h1>
+</div>
 <form action="" method="POST">
     {% csrf_token %}
     <div class="configuration-container">

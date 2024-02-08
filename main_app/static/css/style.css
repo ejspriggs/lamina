@@ -139,6 +139,9 @@ h4.get-started-text {
 .checkboxsize {
     margin: 2px;
 }
+.config-title {
+    text-align: center;
+}
 .database-delete {
     display: flex;
     justify-content: center;
