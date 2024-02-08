@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="config-title">
 <h1>Configuration Page for Fossils</h1>
+</div>
 <form action="" method="POST">
     {% csrf_token %}
     <div class="configuration-container">
@@ -10,7 +11,7 @@
             <div class="col l12 m12 s12">
                 {% if fossil.name in fossils_donated %}
                     <label class="checkbox-container">
-                        <input type="checkbox" name="{{ fossil.name }}">
+                        <input type="checkbox" class="checkboxsize">
                         <span class="checkmark"></span>
                         <h4>{{ fossil.name|title }}</h4>
                         <img src="{{ fossil.image_url }}">
@@ -19,7 +20,9 @@
             </div>
         {% endfor %}
         </div>
-        <input type="submit" class="btn" value="Confirm Changes">
+        <div class="database-delete">
+            <input type="submit" class="btn" value="Confirm Changes">
+        </div>
     </div>
 </form>
 {% endblock %}
