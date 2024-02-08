@@ -29,8 +29,9 @@ def bugs_index(request):
 @login_required
 def bugs_config(request):
     if request.method == 'POST':
-        print(request.body)
-        return redirect('bugs_config')
+        checked_items = [i[0] for i in request.POST.items() if i[0] != 'csrfmiddlewaretoken' and i[1] == 'on']
+        Animal.objects.filter(type__exact = "bug", name__in = checked_items).delete()
+        return redirect('bugs_index')
     else:
         api_url = f'https://api.nookipedia.com/nh/bugs?api_key={api_key}'
         bugs_donated = [f.name for f in request.user.animal_set.filter(type__exact = "bug")]
@@ -70,8 +71,9 @@ def fish_index(request):
 @login_required
 def fish_config(request):
     if request.method == 'POST':
-        print(request.body)
-        return redirect('fish_config')
+        checked_items = [i[0] for i in request.POST.items() if i[0] != 'csrfmiddlewaretoken' and i[1] == 'on']
+        Animal.objects.filter(type__exact = "fish", name__in = checked_items).delete()
+        return redirect('fish_index')
     else:
         api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
         fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
@@ -110,8 +112,9 @@ def fossils_index(request):
 @login_required
 def fossils_config(request):
     if request.method == 'POST':
-        print(request.body)
-        return redirect('fossils_config')
+        checked_items = [i[0] for i in request.POST.items() if i[0] != 'csrfmiddlewaretoken' and i[1] == 'on']
+        Fossils.objects.filter(name__in = checked_items).delete()
+        return redirect('fossils_index')
     else:
         api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
         fossils_donated = [f.name for f in request.user.fossils_set.all()]

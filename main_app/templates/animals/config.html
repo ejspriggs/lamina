@@ -11,7 +11,7 @@
             <div class="col l12 m12 s12">
                 {% if bug.name in bugs_donated %}
                     <label class="checkbox-container">
-                        <input type="checkbox">
+                        <input type="checkbox" name="{{ bug.name }}">
                         <span class="checkmark"></span>
                         <h4>{{ bug.name|title }}</h4>
                         <img src="{{ bug.image_url }}">
@@ -33,7 +33,7 @@
             <div class="col l12 m12 s12">
                 {% if single_fish.name in fish_donated %}
                     <label class="checkbox-container">
-                        <input type="checkbox">
+                        <input type="checkbox" name="{{ single_fish.name }}">
                         <span class="checkmark"></span>
                         <h4>{{ single_fish.name|title }}</h4>
                         <img src="{{ single_fish.image_url }}">
