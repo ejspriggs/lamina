@@ -7,14 +7,14 @@
         <div class="row">
         {% for fossil in fossils %}
             <div class="col l12 m12 s12">
-                <label class="checkbox-container">
-                    {% if fossil.name in fossils_donated %}
+                {% if fossil.name in fossils_donated %}
+                    <label class="checkbox-container">
                         <input type="checkbox" name="{{ fossil.name }}">
                         <span class="checkmark"></span>
                         <h4>{{ fossil.name|title }}</h4>
                         <img src="{{ fossil.image_url }}">
-                    {% endif %}
-                </label>
+                    </label>
+                {% endif %}
             </div>
         {% endfor %}
         </div>
