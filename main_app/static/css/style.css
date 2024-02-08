@@ -135,6 +135,11 @@ h4.get-started-text {
 .checkbox-container h4 {
     margin: 0;
 }
+.checkboxsize input{
+    padding-left: 10px;
+    width: 40px;
+    height: 40px;
+}
 .fossil-detail-page {
     text-align: center;
     background-color: rgb(255,255,255,0.6);
