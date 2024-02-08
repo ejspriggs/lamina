@@ -9,10 +9,17 @@
         {% for bug in bugs %}
             <div class="col l12 m12 s12">
                 <label class="checkbox-container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                    <h4>{{ bug.name|title }}</h4>
-                    <img src="{{ bug.image_url }}">
+                    {% if bug.name in bugs_donated %}
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                        <h4>{{ bug.name|title }}</h4>
+                        <img src="{{ bug.image_url }}">
+                    {% else %}
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>{{ bug.name|title }}</h4>
+                        <img src="{{ bug.image_url }}">
+                    {% endif %}
                 </label>
             </div>
         {% endfor %}
@@ -30,10 +37,17 @@
         {% for single_fish in fish %}
             <div class="col l12 m12 s12">
                 <label class="checkbox-container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                    <h4>{{ single_fish.name|title }}</h4>
-                    <img src="{{ single_fish.image_url }}">
+                    {% if single_fish.name in fish_donated %}
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                        <h4>{{ single_fish.name|title }}</h4>
+                        <img src="{{ single_fish.image_url }}">
+                    {% else %}
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <h4>{{ single_fish.name|title }}</h4>
+                        <img src="{{ single_fish.image_url }}">
+                    {% endif %}
                 </label>
             </div>
         {% endfor %}
