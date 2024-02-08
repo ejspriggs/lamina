@@ -22,6 +22,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'choose_collectible' %}">Status</a></li>
                     <li><a href="{% url 'bugs_index' %}">Bugs</a></li>
                     <li><a href="{% url 'fish_index' %}">Fish</a></li>
                     <li><a href="{% url 'fossils_index' %}">Fossils</a></li>
