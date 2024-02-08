@@ -4,6 +4,7 @@
 {% if animal_type == 'bugs' %}
 <h1>Configuration Page for Bugs</h1>
 <form action="" method="POST">
+    {% csrf_token %}
     <div class="configuration-container">
         <div class="row">
         {% for bug in bugs %}
@@ -25,6 +26,7 @@
 {% elif animal_type == 'fish' %}
 <h1>Configuration Page for Fish</h1>
 <form action="" method="POST">
+    {% csrf_token %}
     <div class="configuration-container">
         <div class="row">
         {% for single_fish in fish %}

@@ -3,6 +3,7 @@
 
 <h1>Configuration Page for Fossils</h1>
 <form action="" method="POST">
+    {% csrf_token %}
     <div class="configuration-container">
         <div class="row">
         {% for fossil in fossils %}
