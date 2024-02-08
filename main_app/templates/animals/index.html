@@ -16,7 +16,10 @@
             </div>
             <div class="detail-buttons">
                 <div class="fish-got-it">
-                    <a class="waves-effect waves-light btn">Got it!</a>
+                    <form method="POST" action="{% url 'fish_got' single_fish.name %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Got it!" class="waves-effect waves-light btn">
+                    </form>
                 </div>
                 <div class="fish-details-button">
                     <a class="waves-effect waves-light btn" href="{{single_fish.name}}">Details</a>
@@ -43,7 +46,10 @@
             </div>
             <div class="detail-buttons">
                 <div class="bug-got-it">
-                    <a class="waves-effect waves-light btn">Got it!</a>
+                    <form method="POST" action="{% url 'bug_got' bug.name %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Got it!" class="waves-effect waves-light btn">
+                    </form>
                 </div>
                 <div class="bug-details-button">
                     <a class="waves-effect waves-light btn" href="{{bug.name}}">Details</a>

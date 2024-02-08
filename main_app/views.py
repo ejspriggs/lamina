@@ -7,25 +7,6 @@ from .models import Profile, Fossils, Animal
 from django.contrib.auth.decorators import login_required
 import requests
 
-# Mock data for initial design
-animals = [
-    {'name': 'Anchovy', 'type': 'Fish', 'image': 'https://dodo.ac/np/images/7/7f/Anchovy_%28Fish%29_NH_Icon.png', 'time_of_year': 'All Year', 'south_hemi_toy': 'All Year', 'location': 'Sea', 'shadow_size': 'Small', 'Weather': '', 'value': 200, 'misc': 'I caught an anchovy! Stay away from my pizza!'},
-    {'name': 'Football Fish', 'type': 'Fish', 'image': 'https://dodo.ac/np/images/3/34/Football_Fish_NH_Icon.png', 'time_of_year': 'Nov - Mar', 'south_hemi_toy': 'May - Sep', 'location': 'Sea', 'shadow_size': 'Large', 'Weather': '', 'value': 2500, 'misc': 'I caught a football fish! Some countries call it a soccer fish!'},
-    {'name': 'Atlas Moth', 'type': 'Bug', 'image': 'https://dodo.ac/np/images/7/7f/Atlas_Moth_NH_Icon.png', 'time_of_year': 'Apr - Sep', 'south_hemi_toy': 'Oct - Mar', 'location': 'On trees (any kind)', 'shadow_size': '', 'Weather': '', 'value': 3000, 'misc': 'I caught an Atlas moth! I bet it never gets lost!'},
-    {'name': 'Bell Cricket', 'type': 'Bug', 'image': 'https://dodo.ac/np/images/4/4a/Bell_Cricket_NH_Icon.png', 'time_of_year': 'Sep - Oct', 'south_hemi_toy': 'Mar - Apr', 'location': 'On the ground', 'shadow_size': '', 'weather': '', 'value': 430, 'misc': 'I caught a bell cricket! It would make a great bellhop!'},
-]
-
-fossils = [
-    {'name': 'Amber', 'image': 'https://dodo.ac/np/images/7/7f/Amber_NH_Icon.png', 'value': 1200},
-    {'name': 'Ankylo Skull', 'image': 'https://dodo.ac/np/images/4/45/Ankylo_Skull_NH_Icon.png', 'value': 3500},
-]
-
-collectibles = {
-    'fish_left': 7,
-    'bugs_left': 21,
-    'fossils_left': 16
-}
-
 api_key = '843450ff-ae8c-4884-83b6-6153eb441bd0'
 
 def home(request):
@@ -56,6 +37,22 @@ def bugs_config(request):
     })
 
 @login_required
+def bug_details(request, bugs_name):
+    api_url = f'https://api.nookipedia.com/nh/bugs/{bugs_name}?api_key={api_key}'
+    bug = requests.get(api_url).json()
+    return render(request, 'animals/animal_details.html', {
+        'bug': bug,
+        'animal_type': 'bugs'
+    })
+
+@login_required
+def bug_got(request, bugs_name):
+    if request.method == "POST":
+        b, created = Animal.objects.get_or_create(name = bugs_name, type = "bug", weather = "", user = request.user)
+        print(f'User {request.user.username} donated bug {b.name}! (New info? {created})')
+    return redirect('bugs_index')
+
+@login_required
 def fish_index(request):
     api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
     fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
@@ -77,6 +74,22 @@ def fish_config(request):
     })
 
 @login_required
+def fish_details(request, fish_name):
+    api_url = f'https://api.nookipedia.com/nh/fish/{fish_name}?api_key={api_key}'
+    fish = requests.get(api_url).json()
+    return render(request, 'animals/animal_details.html', {
+        'fish': fish,
+        'animal_type': 'fish'
+    })
+
+@login_required
+def fish_got(request, fish_name):
+    if request.method == "POST":
+        f, created = Animal.objects.get_or_create(name = fish_name, type = "fish", user = request.user)
+        print(f'User {request.user.username} donated fish {f.name}! (New info? {created})')
+    return redirect('fish_index')
+
+@login_required
 def fossils_index(request):
     api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
     fossils_donated = [f.name for f in request.user.fossils_set.all()]
@@ -92,26 +105,9 @@ def fossils_config(request):
     fossils = requests.get(api_url).json()
     return render(request, 'fossils/index.html', {
         'fossils': fossils,
-        'fossils_donated': fossils
+        'fossils_donated': fossils_donated
     })
 
-@login_required
-def bug_details(request, bugs_name):
-    api_url = f'https://api.nookipedia.com/nh/bugs/{bugs_name}?api_key={api_key}'
-    bug = requests.get(api_url).json()
-    return render(request, 'animals/animal_details.html', {
-        'bug': bug,
-        'animal_type': 'bugs'
-    })
-
-@login_required
-def fish_details(request, fish_name):
-    api_url = f'https://api.nookipedia.com/nh/fish/{fish_name}?api_key={api_key}'
-    fish = requests.get(api_url).json()
-    return render(request, 'animals/animal_details.html', {
-        'fish': fish,
-        'animal_type': 'fish'
-    })
 @login_required
 def fossil_details(request, fossil_name):
     api_url = f'https://api.nookipedia.com/nh/fossils/individuals/{fossil_name}?api_key={api_key}'
@@ -121,7 +117,19 @@ def fossil_details(request, fossil_name):
     })
 
 @login_required
+def fossil_got(request, fossil_name):
+    if request.method == "POST":
+        f, created = Fossils.objects.get_or_create(name = fossil_name, user = request.user)
+        print(f'User {request.user.username} donated fossil {f.name}! (New info? {created})')
+    return redirect('fossils_index')
+
+@login_required
 def choose_collectible(request):
+    collectibles = {
+        'fish_left': 80 - request.user.animal_set.filter(type__exact = "fish").count(),
+        'bugs_left': 80 - request.user.animal_set.filter(type__exact = "bug").count(),
+        'fossils_left': 73 - request.user.fossils_set.count()
+    }
     return render(request, 'choose_collectible.html', collectibles)
 
 def signup(request):

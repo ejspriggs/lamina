@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="fossil-title">
-<h1>Bonez!</h1>
+    <h1>Bonez!</h1>
 </div>
 <div class="container">
     <div class="row">
         {% for fossil in fossils %}
-        <div class="col l12 m12 s12 bonez">
-            <div class="fossil-image">
-            <img src="{{fossil.image_url}}">
-            </div>
-            <div class="fossil-name">
-            <span>{{ fossil.name.title }}</span>
-            </div>
-            <div class="detail-buttons">
-                <div class="fossils-got-it">
-                <a class="waves-effect waves-light btn">Got it!</a>
+            <div class="col l12 m12 s12 bonez">
+                <div class="fossil-image">
+                    <img src="{{fossil.image_url}}">
                 </div>
-                <div class="fossils-details-btn">
-                <a class="waves-effect waves-light btn" href="{{fossil.name}}">Details</a>
+                <div class="fossil-name">
+                    <span>{{ fossil.name.title }}</span>
+                </div>
+                <div class="detail-buttons">
+                    <div class="fossils-got-it">
+                        <form method="POST" action="{% url 'fossil_got' fossil.name %}">
+                            {% csrf_token %}
+                            <input type="submit" value="Got it!" class="waves-effect waves-light btn">
+                        </form>
+                    </div>
+                    <div class="fossils-details-btn">
+                        <a class="waves-effect waves-light btn" href="{{fossil.name}}">Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </div>
