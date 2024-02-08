@@ -15,7 +15,6 @@ urlpatterns = [
     path('fossils/', views.fossils_index, name='fossils_index'),
     path('fossils/<fossil_name>/details/', views.fossil_details, name='fossil_details'),
     path('fossils/<fossil_name>/gotit/', views.fossil_got, name='fossil_got'),
-    path('fossils/<fossil_name>/delete/', views.FossilDelete.as_view(), name='fossil_delete'),
     path('fossils/configuration', views.fossils_config, name='fossils_config'),
     path('collectibles/', views.choose_collectible, name='choose_collectible'),
     path('accounts/signup/', views.signup, name='signup'),

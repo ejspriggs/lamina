@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.edit import DeleteView
 from .forms import ExtendedUserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile, Fossils, Animal
@@ -181,12 +180,3 @@ def signup2(request):
     form = ExtendedUserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-
-
-class AnimalDelete(DeleteView):
-    model = Animal
-    success_url = '/bugs'
-
-class FossilDelete(DeleteView):
-    model = Fossils
-    sucess_url = '/fossils'
