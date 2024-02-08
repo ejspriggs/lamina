@@ -69,14 +69,18 @@ def fish_index(request):
 
 @login_required
 def fish_config(request):
-    api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
-    fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
-    fish = requests.get(api_url).json()
-    return render(request, 'animals/config.html', {
-        'fish': fish,
-        'fish_donated': fish_donated,
-        'animal_type': 'fish'
-    })
+    if request.method == 'POST':
+        print(request.body)
+        return redirect('fish_config')
+    else:
+        api_url = f'https://api.nookipedia.com/nh/fish?api_key={api_key}'
+        fish_donated = [f.name for f in request.user.animal_set.filter(type__exact = "fish")]
+        fish = requests.get(api_url).json()
+        return render(request, 'animals/config.html', {
+            'fish': fish,
+            'fish_donated': fish_donated,
+            'animal_type': 'fish'
+        })
 
 @login_required
 def fish_details(request, fish_name):
@@ -105,13 +109,17 @@ def fossils_index(request):
 
 @login_required
 def fossils_config(request):
-    api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
-    fossils_donated = [f.name for f in request.user.fossils_set.all()]
-    fossils = requests.get(api_url).json()
-    return render(request, 'fossils/config.html', {
-        'fossils': fossils,
-        'fossils_donated': fossils_donated
-    })
+    if request.method == 'POST':
+        print(request.body)
+        return redirect('fossils_config')
+    else:
+        api_url = f'https://api.nookipedia.com/nh/fossils/individuals?api_key={api_key}'
+        fossils_donated = [f.name for f in request.user.fossils_set.all()]
+        fossils = requests.get(api_url).json()
+        return render(request, 'fossils/config.html', {
+            'fossils': fossils,
+            'fossils_donated': fossils_donated
+        })
 
 @login_required
 def fossil_details(request, fossil_name):
