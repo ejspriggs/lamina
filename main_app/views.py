@@ -10,7 +10,15 @@ import requests
 api_key = '843450ff-ae8c-4884-83b6-6153eb441bd0'
 
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        collectibles = {
+        'fish_left': 80 - request.user.animal_set.filter(type__exact = "fish").count(),
+        'bugs_left': 80 - request.user.animal_set.filter(type__exact = "bug").count(),
+        'fossils_left': 73 - request.user.fossils_set.count()
+    }
+        return redirect('/collectibles/', collectibles)
+    else:
+        return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')

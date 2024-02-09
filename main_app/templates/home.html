@@ -2,15 +2,15 @@
 {% block content %}
 
 <div class="entire-home-page">
-    <h1 class="title-home">Animal Crossing New Horizons</h1>
+    <h1 class="title-home">Animal Crossing: New Horizons Museum Tracker</h1>
     <h3 class="login-home">Log In to get started</h3>
     <h3 class="signup-home">Or create an account!</h3>
     <div class="tom-nook">
     <img src="https://giffiles.alphacoders.com/219/219185.gif">
     </div>
     <div class="home-buttons">
-    <ul><a class="btn" href="{% url 'login' %}">Log In</a></ul>
-    <ul><a class="btn" href="{% url 'signup' %}">Sign Up</a></ul>
+    <a class="btn" href="{% url 'login' %}">Log In</a>
+    <a class="btn" href="{% url 'signup' %}">Sign Up</a>
     </div>
 </div>
 {% endblock %}

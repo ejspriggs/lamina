@@ -50,6 +50,7 @@ ul.fossil-index{
 div.about-page {
     color: rgb(242, 205, 162);
     background-color: white;
+    text-align: center;
     margin: 30px;
     border: 3px solid black;
     border-radius: 20px;
@@ -57,7 +58,6 @@ div.about-page {
 h1.about-about-page {
     text-align: center;
     padding: 10px;
-   
 }
 h4.about-text {
     margin: 10px;
@@ -189,22 +189,37 @@ h4.get-started-text {
     margin-top: 30px;
     border: 3px solid black;
 }
-.tom-nook {
-    text-align: center;
+.tom-nook img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 .home-buttons {
     display: flex;
-    text-align: center;
     justify-content: center;
+    margin-top: 10px;
+}
+.home-buttons a {
+    margin: 5px 5px;
 }
 .entire-home-page {
     background-color: rgb(242, 205, 162);
     padding: 20px;
     margin-top: 30px;
     border: 3px solid black;
+    border-radius: 20px;
 }
 @media screen and (max-width: 600px) {
     .nav-wrapper .brand-logo {
         white-space: nowrap;
+    }
+    .title-home {
+        font-size: 32px;
+    }
+    .login-home {
+        font-size: 26px;
+    }
+    .signup-home {
+        font-size: 26px;
     }
 } 
