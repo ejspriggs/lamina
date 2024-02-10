@@ -3,7 +3,7 @@
 {% if animal_type == 'fish' %}
 <div class="fish-title">
     <h1>Fishies!</h1>
-    <a class="waves-effect waves-light btn" href="{% url 'fish_config' %}">Configure List</a>
+    <a class="waves-effect waves-light btn" href="{% url 'fish_config' %}">Current Donations</a>
 </div>
 <div class="container">
     <div class="row">
@@ -19,7 +19,7 @@
                 <div class="fish-got-it">
                     <form method="POST" action="{% url 'fish_got' single_fish.name %}">
                         {% csrf_token %}
-                        <input type="submit" value="Got it!" class="waves-effect waves-light btn">
+                        <input type="submit" value="Make Donation" class="waves-effect waves-light btn">
                     </form>
                 </div>
                 <div class="fish-details-button">
@@ -34,7 +34,7 @@
 {% elif animal_type == 'bugs' %}
 <div class="bug-title">
     <h1>Bugz!</h1>
-    <a class="waves-effect waves-light btn" href="{% url 'bugs_config' %}">Configure List</a>
+    <a class="waves-effect waves-light btn" href="{% url 'bugs_config' %}">Current Donations</a>
 </div>
 <div class="container">
     <div class="row">
@@ -50,7 +50,7 @@
                 <div class="bug-got-it">
                     <form method="POST" action="{% url 'bug_got' bug.name %}">
                         {% csrf_token %}
-                        <input type="submit" value="Got it!" class="waves-effect waves-light btn">
+                        <input type="submit" value="Make Donation" class="waves-effect waves-light btn">
                     </form>
                 </div>
                 <div class="bug-details-button">

@@ -1,38 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="config-title">
-<h1>Configuration Page for Fossils</h1>
+<h1>Current Fossils Donated to Museum</h1>
 </div>
-<form action="" method="POST">
-    {% csrf_token %}
-    <div class="configuration-container">
-        <div class="row">
-        {% if fossils_donated %}
-            {% for fossil in fossils %}
-                <div class="col l12 m12 s12">
-                    {% if fossil.name in fossils_donated %}
-                        <label class="checkbox-container">
-                            <input type="checkbox" class="checkboxsize" name="{{ fossil.name }}">
-                            <span class="checkmark"></span>
-                            <h4>{{ fossil.name|title }}</h4>
-                            <img src="{{ fossil.image_url }}">
-                        </label>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% else %}
+<div class="configuration-container">
+    <div class="row">
+    {% for fossil in fossils %}
         <div class="col l12 m12 s12">
-            <div class="no-animal-msg">
-                <p>It looks like you have no fossils in your museum yet. 
-                    Start collecting!
-                </p>
-            </div>
+            {% if fossil.name in fossils_donated %}
+                <label class="checkbox-container">
+                    <h4>{{ fossil.name|title }}</h4>
+                    <img src="{{ fossil.image_url }}">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn" name="{{ fossil.name }}" value="Remove Donation">
+                    </form>
+                </label>
+            {% endif %}
         </div>
-        {% endif %}
-        </div>
-        <div class="database-delete">
-            <input type="submit" class="btn" value="Confirm Changes">
-        </div>
+    {% endfor %}
     </div>
-</form>
+    <div class="database-delete">
+        <a href="{% url 'fossils_index' %}" type="submit" class="btn">Return to Main Page</a>
+    </div>
+</div>
 {% endblock %}
