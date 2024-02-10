@@ -223,3 +223,11 @@ h4.get-started-text {
         font-size: 26px;
     }
 } 
+
+.no-animal-msg p {
+    text-align: center;
+    font-size: 24px;
+}
+
+
+

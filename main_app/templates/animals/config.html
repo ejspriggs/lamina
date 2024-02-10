@@ -9,18 +9,28 @@
     {% csrf_token %}
     <div class="configuration-container">
         <div class="row">
-        {% for bug in bugs %}
-            <div class="col l12 m12 s12">
-                {% if bug.name in bugs_donated %}
-                    <label class="checkbox-container">
-                        <input type="checkbox" name="{{ bug.name }}">
-                        <span class="checkmark"></span>
-                        <h4>{{ bug.name|title }}</h4>
-                        <img src="{{ bug.image_url }}">
-                    </label>
-                {% endif %}
+        {% if bugs_donated %}   
+            {% for bug in bugs %}
+                <div class="col l12 m12 s12">
+                    {% if bug.name in bugs_donated %}
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="{{ bug.name }}">
+                            <span class="checkmark"></span>
+                            <h4>{{ bug.name|title }}</h4>
+                            <img src="{{ bug.image_url }}">
+                        </label>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="col l12 m12 s12">
+            <div class="no-animal-msg">
+                <p>It looks like you have no bugs in your museum yet. 
+                    Start collecting!
+                </p>
             </div>
-        {% endfor %}
+        </div>
+        {% endif %}
         </div>
         <div class="database-delete">
             <input type="submit" class="btn" value="Confirm Changes">
@@ -35,18 +45,26 @@
     {% csrf_token %}
     <div class="configuration-container">
         <div class="row">
-        {% for single_fish in fish %}
+        {% if fish_donated %}
+            {% for single_fish in fish %}
+                <div class="col l12 m12 s12">
+                    {% if single_fish.name in fish_donated %}
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="{{ single_fish.name }}">
+                            <span class="checkmark"></span>
+                            <h4>{{ single_fish.name|title }}</h4>
+                            <img src="{{ single_fish.image_url }}">
+                        </label>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% else %}
             <div class="col l12 m12 s12">
-                {% if single_fish.name in fish_donated %}
-                    <label class="checkbox-container">
-                        <input type="checkbox" name="{{ single_fish.name }}">
-                        <span class="checkmark"></span>
-                        <h4>{{ single_fish.name|title }}</h4>
-                        <img src="{{ single_fish.image_url }}">
-                    </label>
-                {% endif %}
+                <div class="no-animal-msg">
+                    <p>You have no fish in your museum yet. Start collecting!</p>
+                </div>
             </div>
-        {% endfor %}
+        {% endif %}
         </div>
         <div class="database-delete">
             <input type="submit" class="btn" value="Confirm Changes">
