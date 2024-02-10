@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .forms import ExtendedUserCreationForm
-from django.contrib.auth.models import User
-from .models import Profile, Fossils, Animal
+from .models import Fossils, Animal, BugWeather
 from django.contrib.auth.decorators import login_required
 import requests
 
@@ -56,6 +54,7 @@ def bugs_config(request):
 def bug_details(request, bugs_name):
     api_url = f'https://api.nookipedia.com/nh/bugs/{bugs_name}?api_key={api_key}'
     bug = requests.get(api_url).json()
+    bug["weather"] = BugWeather.objects.get(name__exact = bugs_name).spawn_weather
     return render(request, 'animals/animal_details.html', {
         'bug': bug,
         'animal_type': 'bugs'
@@ -64,7 +63,7 @@ def bug_details(request, bugs_name):
 @login_required
 def bug_got(request, bugs_name):
     if request.method == "POST":
-        b, created = Animal.objects.get_or_create(name = bugs_name, type = "bug", weather = "", user = request.user)
+        b, created = Animal.objects.get_or_create(name = bugs_name, type = "bug", user = request.user)
         print(f'User {request.user.username} donated bug {b.name}! (New info? {created})')
     return redirect('bugs_index')
 
