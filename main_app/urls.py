@@ -18,4 +18,5 @@ urlpatterns = [
     path('fossils/configuration', views.fossils_config, name='fossils_config'),
     path('collectibles/', views.choose_collectible, name='choose_collectible'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('404', views.test404, name='404')
 ]
