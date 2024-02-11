@@ -1,6 +1,5 @@
 body {
     background-image: url("/static/nook-bg-aligned.jpg");
-   
 }
 .login-home {
     text-align: center;
@@ -221,11 +220,7 @@ h4.get-started-text {
         font-size: 26px;
     }
 } 
-
 .no-animal-msg p {
     text-align: center;
     font-size: 24px;
 }
-
-
-
