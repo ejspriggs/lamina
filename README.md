@@ -31,6 +31,8 @@ If you plan on modifying the app, please follow these directions to make sure yo
 <img src="README Images/database-settings.png">
 * You will then need to change the 'NAME' value to match your local Postgresql database
 * If you plan on using a cloud database for this, replace the "DATABASE" section of settings.py with your own database information.
+* Once your database is configured, run migrations by the command ```python3 manage.py migrate```
+* Once your database is migrated, seed it with weather data with the command ```python3 manage.py seed_weather```
 
 ### 🖥️ Technologies Used
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
