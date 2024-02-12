@@ -16,19 +16,21 @@
 <a href="https://trello.com/b/Cb7wbZp8/acnh-museum-tracker">Trello</a>
 <br>
 <h3>Deployed Heroku App</h3>
-<a href="https://acnh-museum-tracker-333e554cc1e4.herokuapp.com/">Musuem Tracker</a>
+<a href="https://acnh-museum-tracker-333e554cc1e4.herokuapp.com/">Museum Tracker</a>
 
 ### 📝 Description
-<p>A full-stack web application that helps users track what items they've donated to their museum in Animal Crossing: New Horizons.</p>
+<p>A full-stack web application that helps users track what items they've donated to their museum in Animal Crossing: New Horizons game on the Nintendo Switch.</p>
 
 ### ⬇️ Installation
 If you plan on modifying the app, please follow these directions to make sure you have all the packages/settings necessary to run the app locally:
-* Run this command to add the requests library to the project:
-```pip install requests```
+* Set up a virtual environment called '.env' by entering the following command:
+```python3 -m venv .env```
+* Run this command in your virtual environment to add the libraries needed to run this project:
+```pip install -r requirements.txt```
 * If you want to run the app locally, remove all lines in the 'DATABASE' section after 'NAME':
-<img src="staticfiles/database-settings.png">
+<img src="README Images/database-settings.png">
 * You will then need to change the 'NAME' value to match your local Postgresql database
-* setting.py
+* If you plan on using a cloud database for this, replace the "DATABASE" section of settings.py with your own database information.
 
 ### 🖥️ Technologies Used
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -68,23 +70,18 @@ where or when to find that specific collectible. Select "Make Donation" when you
 <details>
 <summary>Configuration Pages</summary>
 <br>
-See what items you have in your museum. When "Make Donation" is selected, the collectible will have a check mark next to it. The user is able to check and uncheck multiple items in the case of a mistake being made. To submit the changes you have manually made, please click on the "submit changes" button located at the bottom of this page.
+See what items you've donated to your museum. When "Remove Donation" button is clicked/pressed, the item is removed from the configuration page. The item will reappear on the index page. When the user is finished, they can click on the "Return to Main Page" button at the bottom to redirect them to the index page.
 <img src="README Images/current-donations.png">
 </details>
 
-### ⚠️❌💫 Unsolved Problems/Major Hurtles
-### Kayley: 
+### ⚠️❌💫 Biggest Challenges
 * Issues with Viewing/Confirming CSS Changes
-* Item 2
+* Building a Profile Page
+* Using Django to interact with Postgresql database
 
-### Edward:
-* Profile Page
-* Item 2
-
-### Mour:
-* Item 1
-* Item 2
+### Key Learnings/Takeaways
+* A stronger/better understanding of Django models and how they interact with Postgresql
+* Better understanding of Python with the help of teammates, and more confident in building more Python projects in the future
 
 ### ▶️ Next Steps
-* Abilty for users to view their profiles, and make changes to it.
-* Item 2
+* Abilty for users to view their profiles, and make changes to it. 
