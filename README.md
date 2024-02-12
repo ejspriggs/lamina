@@ -82,7 +82,6 @@ See what items you've donated to your museum. When "Remove Donation" button is c
 ### Key Learnings/Takeaways
 * A stronger/better understanding of Django models and how they interact with Postgresql
 * Better understanding of Python with the help of teammates, and more confident in building more Python projects in the future
-* 
 
 ### ▶️ Next Steps
 * Abilty for users to view their profiles, and make changes to it. 
